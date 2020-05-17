@@ -1,0 +1,15 @@
+on: [push]
+
+jobs:
+  post_to_slack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: post message to slack
+        id: post
+        with:
+          webhookurl:  ${{ secrets.WEBHOOKURL }}
+          message: "hello slack <<this message post from github acrions>>"
+      - name: Get the output time
+        run: echo "${{ steps.post.outputs.status }}"

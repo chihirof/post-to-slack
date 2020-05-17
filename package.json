@@ -1,0 +1,24 @@
+{
+  "name": "post-to-slack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "ncc build index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chihirof/post-to-slack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chihirof/post-to-slack/issues"
+  },
+  "homepage": "https://github.com/chihirof/post-to-slack#readme"
+}

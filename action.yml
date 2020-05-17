@@ -1,0 +1,15 @@
+name: 'Post to Slack'
+description: 'post message to slack'
+inputs:
+  webhookurl:
+    description: 'slack webhookurl'
+    required: true
+  message:
+    description: 'message to post'
+    required: true
+outputs:
+  status:
+    description: 'status of post to stack'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
