@@ -8,6 +8,7 @@ jobs:
         uses: actions/checkout@v2
       - name: post message to slack
         id: post
+        uses: ./
         with:
           webhookurl:  ${{ secrets.WEBHOOKURL }}
           message: "hello slack <<this message post from github acrions>>"
