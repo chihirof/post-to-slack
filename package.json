@@ -19,7 +19,8 @@
     "eslint-plugin-standard": "^4.0.1"
   },
   "scripts": {
-    "build": "ncc build index.js"
+    "build": "ncc build index.js",
+    "lint": "eslint index.js src/*.js --fix"
   },
   "repository": {
     "type": "git",
