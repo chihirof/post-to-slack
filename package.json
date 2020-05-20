@@ -1,7 +1,8 @@
 {
   "name": "post-to-slack",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Action of Github Actions that can post a message to slack.",
+  "private": true,
   "main": "index.js",
   "dependencies": {
     "@actions/core": "^1.2.4",
@@ -17,8 +18,8 @@
     "url": "git+https://github.com/chihirof/post-to-slack.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "chihirof",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/chihirof/post-to-slack/issues"
   },
