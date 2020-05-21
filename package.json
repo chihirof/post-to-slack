@@ -20,7 +20,8 @@
   },
   "scripts": {
     "build": "ncc build index.js",
-    "lint": "eslint index.js src/*.js --fix"
+    "lint": "eslint index.js src/*.js --fix",
+    "lint-ci": "eslint index.js src/*.js"
   },
   "repository": {
     "type": "git",
