@@ -1,0 +1,10 @@
+on: [push]
+
+jobs:
+  run lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: run lint
+        run: npm run lint-ci
