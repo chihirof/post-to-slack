@@ -13,8 +13,9 @@ This is the prerelease version.
 ```yaml
 - name: post message to slack
   uses: chihirof/post-to-slack
+  env:
+    WEBHOOKURL:  ${{ secrets.WEBHOOKURL }}
   with:
-    webhookurl:  ${{ secrets.WEBHOOKURL }}
     message: "hello slack"
 ```
 
@@ -23,11 +24,15 @@ You can use it simply by setting the WEBHOOK URL of Slack and the message you wa
 
 ## Parameters
 
-You can set parameters to "with".
+You can set environment variables to "env".
 
-- **`webhookurl`** 
+- **`WEBHOOK`** 
   - **required**
   - The WEBHOOK URL of Slack.
+
+
+You can set parameters to "with".
+
 - **`message`**
   - **required**
   - Message to send to slack.
@@ -50,8 +55,9 @@ When you want to know the execution result of post-to-slack.
 - name: post message to slack
   id: post
   uses: chihirof/post-to-slack
+  env:
+    WEBHOOKURL:  ${{ secrets.WEBHOOKURL }}
   with:
-    webhookurl:  ${{ secrets.WEBHOOKURL }}
     message: "hello slack"
 - name: Get the output
   run: echo "${{ steps.post.outputs.status }}"
