@@ -1,0 +1,40 @@
+name: test for post-to-slack
+
+on: [pull_request]
+
+jobs:
+  ci_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: post message to slack [OK]
+        id: post
+        uses: ./
+        env:
+          WEBHOOKURL: ${{ secrets.WEBHOOKURL_CI_TEST }}
+        with:
+          message: from github actions for test
+      - name: Get the output [post message to slack]
+        run: echo "${{ steps.post.outputs.status }}"
+
+      - name: missing WEBHOOKURL [Failed]
+        if: ${{ always() }}
+        uses: ./
+        with:
+          message: from github actions for test
+      
+      - name: invalid WEBHOOKURL [Failed]
+        if: ${{ always() }}
+        uses: ./
+        env:
+          WEBHOOKURL: invalidurl
+        with:
+          message: from github actions for test
+      
+      - name: missing message [Failed]
+        if: ${{ always() }}
+        uses: ./
+        env:
+          WEBHOOKURL: ${{ secrets.WEBHOOKURL_CI_TEST }}
