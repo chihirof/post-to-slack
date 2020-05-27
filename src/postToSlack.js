@@ -11,6 +11,10 @@ module.exports = class Slack {
       method: 'post',
       body: JSON.stringify(this.body),
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-    }).then(res => res.status)
+    })
+    .then(res => res.status)
+    .catch(err =>{
+      throw new Error(err)
+    })
   }
 }
