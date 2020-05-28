@@ -74,10 +74,10 @@ module.exports = class Slack {
       body: JSON.stringify(this.body),
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
     })
-    .then(res => res.status)
-    .catch(err =>{
-      throw new Error(err)
-    })
+      .then(res => res.status)
+      .catch(err => {
+        throw new Error(err)
+      })
   }
 }
 
@@ -106,7 +106,7 @@ try {
 
   const slack = new Slack(webhookurl, message)
   slack.post().then(status => {
-    if(status != 200) {
+    if (status !== 200) {
       core.setFailed(status)
     }
     core.setOutput('status', status)
