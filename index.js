@@ -10,12 +10,12 @@ try {
 
   const slack = new Slack(webhookurl, message)
   slack.post().then(status => {
-    if(status != 200) {
-      throw new Error(status)
+    if (status !== 200) {
+      core.setFailed(status)
     }
     core.setOutput('status', status)
   }).catch(error => {
-    throw new Error(error)
+    core.setFailed(error)
   })
 } catch (error) {
   core.setFailed(error)

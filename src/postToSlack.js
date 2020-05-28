@@ -12,9 +12,9 @@ module.exports = class Slack {
       body: JSON.stringify(this.body),
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
     })
-    .then(res => res.status)
-    .catch(err =>{
-      throw new Error(err)
-    })
+      .then(res => res.status)
+      .catch(err => {
+        throw new Error(err)
+      })
   }
 }
