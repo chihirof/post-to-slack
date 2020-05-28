@@ -12,7 +12,7 @@ This is the prerelease version.
 
 ```yaml
 - name: post message to slack
-  uses: chihirof/post-to-slack
+  uses: chihirof/post-to-slack@v0.1.2
   env:
     WEBHOOKURL:  ${{ secrets.WEBHOOKURL }}
   with:
@@ -54,7 +54,7 @@ When you want to know the execution result of post-to-slack.
 ```yaml
 - name: post message to slack
   id: post
-  uses: chihirof/post-to-slack
+  uses: chihirof/post-to-slack@v0.1.2
   env:
     WEBHOOKURL:  ${{ secrets.WEBHOOKURL }}
   with:
