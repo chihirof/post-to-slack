@@ -17,24 +17,33 @@ jobs:
         with:
           message: from github actions for test
       - name: Get the output [post message to slack]
-        run: echo "${{ steps.post.outputs.status }}"
+        run: echo ${{ steps.post.outputs.status }}
 
       - name: missing WEBHOOKURL [Failed]
-        if: ${{ always() }}
+        id: missing-webhookurl
         uses: ./
         with:
           message: from github actions for test
+        continue-on-error: true
+      - name: check - missing WEBHOOKURL [Failed]
+        run: ./bin/assert.sh ${{ steps.missing-webhookurl.outcome }} failure
       
       - name: invalid WEBHOOKURL [Failed]
-        if: ${{ always() }}
+        id: invalid-webhookurl
         uses: ./
         env:
           WEBHOOKURL: invalidurl
         with:
           message: from github actions for test
+        continue-on-error: true
+      - name: check - invalid WEBHOOKURL [Failed]
+        run: ./bin/assert.sh ${{ steps.invalid-webhookurl.outcome }} failure
       
       - name: missing message [Failed]
-        if: ${{ always() }}
+        id: missing-message
         uses: ./
         env:
           WEBHOOKURL: ${{ secrets.WEBHOOKURL_CI_TEST }}
+        continue-on-error: true
+      - name: check - missing message [Failed]
+        run: ./bin/assert.sh ${{ steps.missing-message.outcome }} failure
