@@ -1,0 +1,14 @@
+on: [pull_request]
+
+jobs:
+  run_lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: setup Node
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+      - name: check version
+        run: node ./bin/check-version.js
