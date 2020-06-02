@@ -1,6 +1,6 @@
 name: test for post-to-slack
 
-on: [release]
+on: [push]
 
 jobs:
   ci_test:
