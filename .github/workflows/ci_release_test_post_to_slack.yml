@@ -1,4 +1,4 @@
-name: test for post-to-slack
+name: test for post-to-slack for release
 
 on: [release]
 

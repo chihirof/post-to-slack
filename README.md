@@ -1,3 +1,8 @@
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/chihirof/post-to-slack?color=blue&include_prereleases)
+[![GitHub](https://img.shields.io/github/license/chihirof/post-to-slack)](./LICENSE)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/chihirof/post-to-slack/test%20for%20post-to-slack?label=test%20post%20%28CI%29)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/chihirof/post-to-slack/lint?label=lint%20%28CI%29)
+
 # post to slack
 
 Action of Github Actions that can post a message to slack.  
