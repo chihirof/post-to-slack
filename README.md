@@ -43,7 +43,7 @@ You can set parameters to "with".
   - **required**
   - Message to send to slack.
   - string
-- **`link_names`**
+- **`link_names`** (v0.2.0~)
   - optional (default `false`)
   - If this value set to `true`, find and link channel names and usernames.
   - true / false
