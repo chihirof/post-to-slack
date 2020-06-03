@@ -1,9 +1,10 @@
 const fetch = require('node-fetch')
 
 module.exports = class Slack {
-  constructor (url, message) {
+  constructor (url, message, isLink) {
     this.url = url
-    this.body = { text: message }
+    this.body = { text: message, link_names: isLink }
+    this.isLink = isLink
   }
 
   post () {
