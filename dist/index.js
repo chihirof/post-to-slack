@@ -63,9 +63,10 @@ module.exports = eval("require")("encoding");
 const fetch = __webpack_require__(454)
 
 module.exports = class Slack {
-  constructor (url, message) {
+  constructor (url, message, isLink) {
     this.url = url
-    this.body = { text: message }
+    this.body = { text: message, link_names: isLink }
+    this.isLink = isLink
   }
 
   post () {
@@ -96,6 +97,7 @@ module.exports = require("os");
 
 const core = __webpack_require__(470)
 const Slack = __webpack_require__(25)
+const util = __webpack_require__(648)
 
 try {
   const webhookurl = process.env.WEBHOOKURL
@@ -103,8 +105,9 @@ try {
   if (!webhookurl || !message) {
     throw new Error('WEBHOOKURL and message are required.')
   }
+  const isLink = util.isLink(core.getInput('link_names'))
 
-  const slack = new Slack(webhookurl, message)
+  const slack = new Slack(webhookurl, message, isLink)
   slack.post().then(status => {
     if (status !== 200) {
       core.setFailed(status)
@@ -2123,6 +2126,21 @@ module.exports = require("http");
 /***/ (function(module) {
 
 module.exports = require("path");
+
+/***/ }),
+
+/***/ 648:
+/***/ (function(__unusedmodule, exports) {
+
+
+exports.isLink = function (linkNames) {
+  let isLink = false
+  if (linkNames === 'true') {
+    isLink = true
+  }
+  return isLink
+}
+
 
 /***/ }),
 
