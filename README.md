@@ -34,6 +34,7 @@ You can set environment variables to "env".
 - **`WEBHOOK`** 
   - **required**
   - The WEBHOOK URL of Slack.
+  - string
 
 
 You can set parameters to "with".
@@ -41,7 +42,11 @@ You can set parameters to "with".
 - **`message`**
   - **required**
   - Message to send to slack.
-
+  - string
+- **`link_names`** (v0.2.0~)
+  - optional (default `false`)
+  - If this value set to `true`, find and link channel names and usernames.
+  - true / false
 
 ## Outputs
 

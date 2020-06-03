@@ -1,5 +1,6 @@
 const core = require('@actions/core')
 const Slack = require('./src/postToSlack')
+const util = require('./src/util')
 
 try {
   const webhookurl = process.env.WEBHOOKURL
@@ -7,8 +8,9 @@ try {
   if (!webhookurl || !message) {
     throw new Error('WEBHOOKURL and message are required.')
   }
+  const isLink = util.isLink(core.getInput('link_names'))
 
-  const slack = new Slack(webhookurl, message)
+  const slack = new Slack(webhookurl, message, isLink)
   slack.post().then(status => {
     if (status !== 200) {
       core.setFailed(status)

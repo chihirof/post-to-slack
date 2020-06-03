@@ -15,9 +15,17 @@ jobs:
         env:
           WEBHOOKURL: ${{ secrets.WEBHOOKURL_CI_TEST }}
         with:
-          message: from github actions for test
+          message: from github actions for test @here
       - name: Get the output [post message to slack]
         run: echo ${{ steps.post.outputs.status }}
+
+      - name: post message to slack with link_names[OK]
+        uses: ./
+        env:
+          WEBHOOKURL: ${{ secrets.WEBHOOKURL_CI_TEST }}
+        with:
+          message: from github actions for test @here
+          link_names: true
 
       - name: missing WEBHOOKURL [Failed]
         id: missing-webhookurl

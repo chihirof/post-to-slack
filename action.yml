@@ -4,6 +4,8 @@ inputs:
   message:
     description: 'message to post'
     required: true
+  link_names:
+    description: 'if this value set to true, find and link channel names and usernames'
 outputs:
   status:
     description: 'status of post to stack'
