@@ -20,7 +20,6 @@ jobs:
         run: echo ${{ steps.post.outputs.status }}
 
       - name: post message to slack with link_names[OK]
-        id: post
         uses: ./
         env:
           WEBHOOKURL: ${{ secrets.WEBHOOKURL_CI_TEST }}
