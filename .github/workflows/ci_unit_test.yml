@@ -1,0 +1,21 @@
+name: unit test
+
+on: [push]
+
+jobs:
+  run_unit_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache npm
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ secrets.CACHE_VERSION }}-npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ secrets.CACHE_VERSION }}-npm-
+      - name: npm install
+        run: npm install
+      - name: run unit test
+        run: npm test
