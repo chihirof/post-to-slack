@@ -8,16 +8,11 @@
 Action of Github Actions that can post a message to slack.  
 
 
-## Attention
-
-This is the prerelease version.  
-
-
 ## Simply Usage
 
 ```yaml
 - name: post message to slack
-  uses: chihirof/post-to-slack@v0.2.0
+  uses: chihirof/post-to-slack@v1.0.0
   env:
     WEBHOOKURL:  ${{ secrets.WEBHOOKURL }}
   with:
@@ -64,7 +59,7 @@ When you want to know the execution result of post-to-slack.
 ```yaml
 - name: post message to slack
   id: post
-  uses: chihirof/post-to-slack@v0.2.0
+  uses: chihirof/post-to-slack@v1.0.0
   env:
     WEBHOOKURL:  ${{ secrets.WEBHOOKURL }}
   with:
