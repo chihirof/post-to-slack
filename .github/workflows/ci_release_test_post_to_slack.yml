@@ -4,7 +4,7 @@ on: [release]
   types: [published]
 
 jobs:
-  ci_test:
+  run_release_test:
     runs-on: ubuntu-latest
     steps:
       - name: post message to slack

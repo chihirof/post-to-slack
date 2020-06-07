@@ -3,7 +3,7 @@ name: test for post-to-slack
 on: [pull_request]
 
 jobs:
-  ci_test:
+  run_test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

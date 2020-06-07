@@ -3,7 +3,7 @@ name: check version
 on: [pull_request]
 
 jobs:
-  run_lint:
+  run_check_version:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
