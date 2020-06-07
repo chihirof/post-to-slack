@@ -1,6 +1,7 @@
 name: test for post-to-slack for release
 
 on: [release]
+  types: [published]
 
 jobs:
   ci_test:
