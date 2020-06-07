@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: post message to slack
         id: post
-        uses: chihirof/post-to-slack@v0.1.4
+        uses: chihirof/post-to-slack@v0.2.0
         env:
           WEBHOOKURL: ${{ secrets.WEBHOOKURL_CI_TEST }}
         with:

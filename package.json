@@ -1,6 +1,6 @@
 {
   "name": "post-to-slack",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Action of Github Actions that can post a message to slack.",
   "private": true,
   "main": "index.js",

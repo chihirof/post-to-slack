@@ -17,7 +17,7 @@ This is the prerelease version.
 
 ```yaml
 - name: post message to slack
-  uses: chihirof/post-to-slack@v0.1.4
+  uses: chihirof/post-to-slack@v0.2.0
   env:
     WEBHOOKURL:  ${{ secrets.WEBHOOKURL }}
   with:
@@ -43,7 +43,7 @@ You can set parameters to "with".
   - **required**
   - Message to send to slack.
   - string
-- **`link_names`** (v0.2.0~)
+- **`link_names`**
   - optional (default `false`)
   - If this value set to `true`, find and link channel names and usernames.
   - true / false
@@ -64,7 +64,7 @@ When you want to know the execution result of post-to-slack.
 ```yaml
 - name: post message to slack
   id: post
-  uses: chihirof/post-to-slack@v0.1.4
+  uses: chihirof/post-to-slack@v0.2.0
   env:
     WEBHOOKURL:  ${{ secrets.WEBHOOKURL }}
   with:
