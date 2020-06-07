@@ -1,3 +1,8 @@
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/chihirof/post-to-slack?color=blue&include_prereleases)
+[![GitHub](https://img.shields.io/github/license/chihirof/post-to-slack)](./LICENSE)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/chihirof/post-to-slack/test%20for%20post-to-slack?label=test%20post%20%28CI%29)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/chihirof/post-to-slack/lint?label=lint%20%28CI%29)
+
 # post to slack
 
 Action of Github Actions that can post a message to slack.  
@@ -12,7 +17,7 @@ This is the prerelease version.
 
 ```yaml
 - name: post message to slack
-  uses: chihirof/post-to-slack@v0.1.4
+  uses: chihirof/post-to-slack@v0.2.0
   env:
     WEBHOOKURL:  ${{ secrets.WEBHOOKURL }}
   with:
@@ -29,6 +34,7 @@ You can set environment variables to "env".
 - **`WEBHOOK`** 
   - **required**
   - The WEBHOOK URL of Slack.
+  - string
 
 
 You can set parameters to "with".
@@ -36,7 +42,11 @@ You can set parameters to "with".
 - **`message`**
   - **required**
   - Message to send to slack.
-
+  - string
+- **`link_names`**
+  - optional (default `false`)
+  - If this value set to `true`, find and link channel names and usernames.
+  - true / false
 
 ## Outputs
 
@@ -54,7 +64,7 @@ When you want to know the execution result of post-to-slack.
 ```yaml
 - name: post message to slack
   id: post
-  uses: chihirof/post-to-slack@v0.1.4
+  uses: chihirof/post-to-slack@v0.2.0
   env:
     WEBHOOKURL:  ${{ secrets.WEBHOOKURL }}
   with:

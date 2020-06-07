@@ -1,9 +1,9 @@
-name: lint
+name: unit test
 
 on: [push]
 
 jobs:
-  run_lint:
+  run_unit_test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -17,5 +17,5 @@ jobs:
             ${{ runner.os }}-${{ secrets.CACHE_VERSION }}-npm-
       - name: npm install
         run: npm install
-      - name: run lint
-        run: npm run lint-ci
+      - name: run unit test
+        run: npm test

@@ -1,14 +1,15 @@
-name: test for post-to-slack
+name: test for post-to-slack for release
 
 on: [release]
+  types: [published]
 
 jobs:
-  ci_test:
+  run_release_test:
     runs-on: ubuntu-latest
     steps:
       - name: post message to slack
         id: post
-        uses: chihirof/post-to-slack@v0.1.4
+        uses: chihirof/post-to-slack@v0.2.0
         env:
           WEBHOOKURL: ${{ secrets.WEBHOOKURL_CI_TEST }}
         with:
